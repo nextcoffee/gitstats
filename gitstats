@@ -61,7 +61,7 @@ def getpipeoutput(cmds, quiet = False):
 	for x in cmds[1:]:
 		p = subprocess.Popen(x, stdin = p.stdout, stdout = subprocess.PIPE, shell = True)
 		processes.append(p)
-	output = p.communicate()[0]
+	output = p.communicate()[0].decode()
 	for p in processes:
 		p.wait()
 	end = time.time()
